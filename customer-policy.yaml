@@ -1,0 +1,15 @@
+kind: NetworkPolicy
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: customer-policy
+  namespace: yaobank
+spec:
+  podSelector:
+    matchLabels:
+      app: customer
+  ingress:
+    - ports:
+      - protocol: TCP
+        port: 80
+  egress:
+    - to: []
